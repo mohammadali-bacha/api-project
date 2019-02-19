@@ -6,8 +6,6 @@ Initializes sequelize :   sequelize init
 
 
 
-
-
   sequelize db:migrate:schema:timestamps:add  Update migration table to have timestamps
   sequelize db:migrate:status                 List the status of all migrations
   sequelize db:migrate:undo                   Reverts a migration
@@ -17,6 +15,20 @@ Initializes sequelize :   sequelize init
   sequelize init:migrations                   Initializes migrations
   sequelize init:models                       Initializes models
   sequelize init:seeders                      Initializes seeders
-  sequelize migration:generate                Generates a new migration file                                                                                                                                       [aliases: migration:create]
-  sequelize model:generate                    Generates a model and its migration                                                                                                                                      [aliases: model:create]
-                                                                                                                                                                                                   [boolean]
+  sequelize migration:generate                Generates a new migration file              [aliases: migration:create]
+  sequelize model:generate                    Generates a model and its migration         [aliases: model:create]
+      [boolean]
+
+
+
+createdb bookstore
+migrate --> envoie en db
+models --> mapper données de base avec objet API
+
+-UI --> Postman
+-DB
+
+Serveur web :
+-Controller
+-Route
+

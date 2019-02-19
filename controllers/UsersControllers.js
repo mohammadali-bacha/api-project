@@ -1,5 +1,5 @@
 import model from '../models';
-const { User } = model; // destructuring js 
+const {   User } = model; // destructuring js 
 
 class UsersControllers {
     static signup(req, res) {
@@ -16,8 +16,10 @@ class UsersControllers {
             user: userData
         }))
     }
+
+    static datas(req, res) {
+        return User.findAll().then(users => res.json(users));        
+    }
 }
-
-
 
 module.exports = UsersControllers;
