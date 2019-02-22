@@ -4,7 +4,6 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import router from './routes/index';
 
-
 const app = express();
 
 app.set('view engine', 'ejs'); // moteur de template permettant d'afficher du html
