@@ -7,10 +7,12 @@ import router from './routes/index';
 
 const app = express();
 
-const server = http.createServer(app);
+app.set('view engine', 'ejs'); // moteur de template permettant d'afficher du html
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
+const server = http.createServer(app);  //on crée le serveur
+
+app.use(logger('dev')); // on ajoute logger pour avoir plus de détails sur les erreurs dans la console
+app.use(bodyParser.json()); // o ajoute bodyparser pour le json
 
 
 app.use(bodyParser.urlencoded({
@@ -19,7 +21,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(router);
 
-server.listen(8080, function () {
+server.listen(8080, function () { // le serveur écoute sur le port 8080
     console.log('server running')
 });
 

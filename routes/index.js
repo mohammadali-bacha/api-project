@@ -1,27 +1,18 @@
-import UsersControllers from '../controllers/UsersControllers'
+import UsersControllers from '../controllers/UsersControllers';
+import HomeControllers from '../controllers/HomeControllers';
 import express from "express";
 
 const router = express.Router();
 
 const app = express();
 
-// router.get("/", (req, res) => {
-//     res.render("coucou");
-// });
-// router.get('/users', (req,res) => {
-//     res.json({
-//         message: "users"
-//     });
-// });
-// router.get("/authentification", (req,res) => {
-//     res.json({
-//         message : "authentification"
-//     });
-// });
 
-router.post('/signup', UsersControllers.signup);
-// router.get('/datas', UsersControllers.datas);
+router.post('/signup', UsersControllers.signup); //requete post pointant vers /signup
 
-router.get('/datas', UsersControllers.datas);
+router.get('/users', UsersControllers.getUsersList); //requete get poitant vers /users
+
+router.post('/signupAsync', UsersControllers.signupAsync); //requete post pointant vers /signupAsync
+
+router.get('/', HomeControllers.index); //requete get pointant vers la racine du serveur
 
 module.exports = router;
