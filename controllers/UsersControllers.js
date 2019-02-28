@@ -14,7 +14,7 @@ class UsersControllers { //ceci est le controleur de la vue Users
         /*
         destructuring des const email,password et name en leur affectant req.body
         */
-        const { 
+        const {
             email,
             password,
             name
@@ -53,8 +53,19 @@ class UsersControllers { //ceci est le controleur de la vue Users
     static getUsersList(req, res) {
         return User.findAll().then(users => res.json(users));
     }
+
+    static putUsersInList(req, res) {
+        return User.findAll().then(users => res.json(users));
+    }
+
+    static deleteUsersInList(req, res) {
+        //     return User.destroy({  
+        //         where: { name: 'Max' }
+        //       }).then(users => res.json(users));
+        // }
+        return User.destroy().then(users => res.json(users));
+    }
 }
 
 
 module.exports = UsersControllers; // on exporte le controleur
-
