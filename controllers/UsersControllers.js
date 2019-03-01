@@ -10,25 +10,24 @@ import User from '../models/user';
 */
 
 class UsersControllers { //ceci est le contrôleur de la vue Users
-    static signup(req, res) { // methode statique signup 
-        /*
-        destructuring des const email,password et name en leur affectant req.body
-        */
-        const {
-            email,
-            password,
-            name
-        } = req.body;
-        return User.create({ // on crée les valeurs d'email, password et name
-            email: email,
-            password: password,
-            name: name,
-        }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
-            succes: true,
-            message: 'user succesfull signed up',
-            user: userData
-        }))
+
+    //------------
+    // html :
+    //------------
+
+    static index(req, res, next) { // cette méthode static prends en paramètres la requête et la réponse
+        (async function (req, res) { // fonction anonyme asynchrone prenant la requête et la réponse en paramètres
+            const users = await User.findAll(); // on stocke dans une variable users la méthode permettant de trouver les données de la base de données
+            return res.render('users/index', { // on rend la vue home avec le fichier index.html contenu dedans
+                users: users
+            });
+
+        })(req, res); // on récupère les paramètres de requête et réponse
     }
+
+    //------------
+    // api json :
+    //------------
 
     static signupAsync(req, res) { // cette méthode static prends en paramètres la requête et la réponse
         (async function (req, res) { // fonction anonyme asynchrone prenant la requête et la réponse en paramètres
@@ -50,6 +49,27 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         })(req, res) // on récupère les paramètres de requête et réponse
     }
 
+
+    static signup(req, res) { // methode statique signup 
+        /*
+        destructuring des const email,password et name en leur affectant req.body
+        */
+        const {
+            email,
+            password,
+            name
+        } = req.body;
+        return User.create({ // on crée les valeurs d'email, password et name
+            email: email,
+            password: password,
+            name: name,
+        }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
+            succes: true,
+            message: 'user succesfull signed up',
+            user: userData
+        }))
+    }
+
     static getUsersList(req, res) {
         return User.findAll().then(users => res.json(users));
     }
@@ -59,10 +79,6 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
     }
 
     static deleteUsersInList(req, res) {
-        //     return User.destroy({  
-        //         where: { name: 'Max' }
-        //       }).then(users => res.json(users));
-        // }
         return User.destroy().then(users => res.json(users));
     }
 }
