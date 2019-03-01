@@ -11,8 +11,8 @@ app.set('view engine', 'ejs'); // moteur de template permettant d'afficher du ht
 const server = http.createServer(app);  //on crée le serveur
 
 app.use(logger('dev')); // on ajoute logger pour avoir plus de détails sur les erreurs dans la console
-app.use(bodyParser.json()); // o ajoute bodyparser pour le json
-
+app.use(bodyParser.json()); // on ajoute bodyparser pour le json
+app.use('/assets', express.static('public')); // Gestion des fichiers statiques
 
 app.use(bodyParser.urlencoded({
     extended: false

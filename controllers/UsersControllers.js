@@ -9,7 +9,7 @@ import User from '../models/user';
 
 */
 
-class UsersControllers { //ceci est le controleur de la vue Users
+class UsersControllers { //ceci est le contrôleur de la vue Users
     static signup(req, res) { // methode statique signup 
         /*
         destructuring des const email,password et name en leur affectant req.body
@@ -23,15 +23,15 @@ class UsersControllers { //ceci est le controleur de la vue Users
             email: email,
             password: password,
             name: name,
-        }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requete
+        }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
             succes: true,
             message: 'user succesfull signed up',
             user: userData
         }))
     }
 
-    static signupAsync(req, res) { // cette méthode static prends en paramètres la requete et la reponse
-        (async function (req, res) { // fonction anonyme asynchrone prenant la requete et la reponse en params
+    static signupAsync(req, res) { // cette méthode static prends en paramètres la requête et la réponse
+        (async function (req, res) { // fonction anonyme asynchrone prenant la requête et la réponse en paramètres
             const {
                 email,
                 password,
@@ -47,7 +47,7 @@ class UsersControllers { //ceci est le controleur de la vue Users
                 message: 'user succesfull',
                 user: userData
             })
-        })(req, res) // on récupère les parametres de requete et reponse
+        })(req, res) // on récupère les paramètres de requête et réponse
     }
 
     static getUsersList(req, res) {
@@ -68,4 +68,4 @@ class UsersControllers { //ceci est le controleur de la vue Users
 }
 
 
-module.exports = UsersControllers; // on exporte le controleur
+module.exports = UsersControllers; // on exporte le contrôleur

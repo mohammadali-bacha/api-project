@@ -8,16 +8,16 @@ const router = express.Router();
 const app = express();
 
 
-router.post('/signup', UsersControllers.signup); //requete post pointant vers /signup
+router.post('/signup', UsersControllers.signup); //requête post pointant vers /signup
 
-router.get('/users', UsersControllers.getUsersList); //requete get poitant vers /users
+router.get('/users', UsersControllers.getUsersList); //requête get poitant vers /users
 
-router.post('/signupAsync', UsersControllers.signupAsync); //requete post pointant vers /signupAsync
+router.post('/signupAsync', UsersControllers.signupAsync); //requête post pointant vers /signupAsync
 
-router.get('/', HomeControllers.index); //requete get pointant vers la racine du serveur
+router.get('/', HomeControllers.index); //requête get pointant vers la racine du serveur
 
-// router.put('/put', UsersControllers.deleteUsersInList); //requete put
+// router.put('/put', UsersControllers.deleteUsersInList); //requête put
 
-router.delete('/delete', UsersControllers.deleteUsersInList); //requete delete effaçant la donnée concernée dans la db
+router.delete('/delete', UsersControllers.deleteUsersInList); //requête delete effaçant la donnée concernée dans la db
 
 module.exports = router;
