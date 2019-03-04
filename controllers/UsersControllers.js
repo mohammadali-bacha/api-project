@@ -32,12 +32,10 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
 
     static home(req, res, next) {
         return res.render('home');
-        // return res.render('views/sessions/signin.ejs');
     }
 
     static signup1(req, res, next) {
-        return res.render('signup1');
-        // return res.render('views/sessions/signin.ejs');
+        return res.render('signup');
     }
 
     //------------
@@ -61,7 +59,9 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
                 message: 'user succesfull',
                 user: userData
             })
-        })(req, res) // on récupère les paramètres de requête et réponse
+
+        })(req, res)
+        // on récupère les paramètres de requête et réponse
     }
 
 
@@ -78,11 +78,16 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
             email: email,
             password: password,
             name: name,
+            // }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
+            //     succes: true,
+            //     message: 'user succesfull signed up',
+            //     user: userData
+            // }))
         }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
             succes: true,
             message: 'user succesfull signed up',
             user: userData
-        }))
+        }).res.render('signup'))
     }
 
     static getUsersList(req, res) {

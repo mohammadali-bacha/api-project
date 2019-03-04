@@ -73,7 +73,7 @@ form{
 
             </div>
             <div class="col-md-8 order-md-1">
-                <form class="needs-validation" novalidate>
+                <form method="post" class="needs-validation" action="/signup" novalidate>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Prénom</label>
@@ -81,10 +81,15 @@ form{
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
+                            
                         </div>
+                        
+
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Nom</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                            <% if (user) { %>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="<%= user.name %>" required>
+                            <% } %>
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -95,10 +100,19 @@ form{
 
                     <div class="mb-3">
                         <label for="email">Email <span class="text-muted"></span></label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <% if (user) { %>
+                        <input type="email" class="form-control" id="email" value="<%= user.email %>" placeholder="you@example.com">
+                        <% } %>
                         <div class="invalid-feedback" >
                             Please enter a valid email address for shipping updates.
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <% if (user) { %>
+                    <input type="password" class="form-control" id="exampleInputPassword1" value="<%= user.password %>" placeholder="Password">
+                    <% } %>
                     </div>
 
                     <hr class="mb-5">

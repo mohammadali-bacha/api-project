@@ -1,6 +1,6 @@
 import UsersControllers from '../controllers/UsersControllers';
 import HomeControllers from '../controllers/HomeControllers';
-import { square, authenticate } from '../helpers/SessionsHelpers';
+// import { square, authenticate } from '../helpers/SessionsHelpers';
 import express from "express";
 
 
@@ -13,11 +13,12 @@ const app = express();
 //     res.redirect('/');
 // });
 
+
+router.get('/signup', UsersControllers.signup1); //requête get pointant vers /signup
+
 router.post('/signup', UsersControllers.signup); //requête post pointant vers /signup
 
 router.get('/signin', UsersControllers.signin); // requête get pointant vers signin pour se login
-
-router.get('/signup1', UsersControllers.signup1);
 
 router.get('/users', UsersControllers.index); //requête get pointant vers /users
 
