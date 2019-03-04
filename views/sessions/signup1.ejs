@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/stylesheets/bootstrap/4.1.3/bootstrap.min.css">
+    <script src="../assets/js/bootstrap/4.1.3/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/popper/1.14.7/popper.min.js" type="text/javascript"></script>
+    <script src="../assets/js/holder/2.8/holder.min.js"></script>
+</head>
+
+<style>
+    body {
+  background-color: grey;
+}
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed { 
+  line-height: 1.25; 
+}
+
+.themed {
+  background-color: rgba(86, 61, 100, 0.5);
+    }
+
+form{
+  position: absolute; /* postulat de départ */
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  }
+  .btn-success{
+    margin-left:6px
+  }
+  
+  </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="/">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/users">Users <span class="sr-only">(current)</span></a>
+                </li>
+                <button type="button" class="btn btn-success" onclick="window.location.href = '/signin';">Sign In</button>
+            </ul>
+            <button type="button" class="btn btn-danger float-left" href="">Sign Out</button>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="https://kantum.xyz/img/home/main-icon.png" alt="" idth="280" height="72">
+            <h2>Formulaire d'inscription</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+
+
+            </div>
+            <div class="col-md-8 order-md-1">
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Prénom</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Nom</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="email">Email <span class="text-muted"></span></label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback" >
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <hr class="mb-5">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+        //     // Example starter JavaScript for disabling form submissions if there are invalid fields
+        //     (function () {
+        //         'use strict';
+
+        //         window.addEventListener('load', function () {
+        //             // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        //             var forms = document.getElementsByClassName('needs-validation','invalid-feedback');
+
+        //             // Loop over them and prevent submission
+        //             var validation = Array.prototype.filter.call(forms, function (form) {
+        //                 form.addEventListener('submit', function (event) {
+        //                     if (form.checkValidity() === false) {
+        //                         event.preventDefault();
+        //                         event.stopPropagation();
+        //                     }
+        //                     form.classList.add('was-validated');
+        //                 }, false);
+        //             });
+        //         }, false);
+        //     })();
+        // </script>
+</body>
+
+</html>

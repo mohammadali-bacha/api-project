@@ -6,7 +6,7 @@ const {
 class HomeControllers { // ceci est le contrôlleur de la vue Home
 
     static index(req, res, next) {
-        res.render('/home/index');
+        res.render('index');
     }
     // static index(req, res, next) { // cette méthode static prends en paramètres la requête et la réponse
     //     (async function (req, res) { // fonction anonyme asynchrone prenant la requête et la réponse en paramètres
