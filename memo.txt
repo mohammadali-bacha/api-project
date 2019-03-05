@@ -19,11 +19,24 @@ Initializes sequelize :   sequelize init
   sequelize model:generate                    Generates a model and its migration         [aliases: model:create]
       [boolean]
 
+#----------------------------------------------------
+# procedure pour creer pour la premeiere fois la base de donnees bookstore
+#----------------------------------------------------
+sequelize db:create 
+sequelize db:migrate
+
+#----------------------------------------------------
+# procedure pour recreer la base de donnees bookstore
+#----------------------------------------------------
+sequelize db:drop 
+sequelize db:create 
+sequelize db:migrate
 
 
-createdb bookstore
 migrate --> envoie en db
 models --> mapper données de base avec objet API
+
+
 
 -UI --> Postman
 -DB

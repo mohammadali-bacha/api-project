@@ -69,6 +69,7 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         /*
         destructuring des const email,password et name en leur affectant req.body
         */
+        console.log(req.body);
         const {
             email,
             password,
@@ -78,16 +79,8 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
             email: email,
             password: password,
             name: name,
-            // }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
-            //     succes: true,
-            //     message: 'user succesfull signed up',
-            //     user: userData
-            // }))
-        }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
-            succes: true,
-            message: 'user succesfull signed up',
-            user: userData
-        }).res.render('signup'))
+        }).then(()=> res.render('signup'));
+        
     }
 
     static getUsersList(req, res) {
