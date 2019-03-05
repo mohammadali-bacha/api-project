@@ -18,11 +18,24 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
     static index(req, res, next) { // cette méthode static prends en paramètres la requête et la réponse
         (async function (req, res) { // fonction anonyme asynchrone prenant la requête et la réponse en paramètres
             const users = await User.findAll(); // on stocke dans une variable users la méthode permettant de trouver les données de la base de données
-            return res.render('users/index', { // on rend la vue home avec le fichier index.html contenu dedans
+            return res.render('users', { // on rend la vue home avec le fichier index.html contenu dedans
                 users: users
             });
 
         })(req, res); // on récupère les paramètres de requête et réponse
+    }
+
+    static signin(req, res, next) {
+        return res.render('signin');
+        // return res.render('views/sessions/signin.ejs');
+    }
+
+    static home(req, res, next) {
+        return res.render('home');
+    }
+
+    static signup1(req, res, next) {
+        return res.render('signup');
     }
 
     //------------
@@ -46,7 +59,9 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
                 message: 'user succesfull',
                 user: userData
             })
-        })(req, res) // on récupère les paramètres de requête et réponse
+
+        })(req, res)
+        // on récupère les paramètres de requête et réponse
     }
 
 
@@ -63,11 +78,16 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
             email: email,
             password: password,
             name: name,
+            // }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
+            //     succes: true,
+            //     message: 'user succesfull signed up',
+            //     user: userData
+            // }))
         }).then(userData => res.status(201).send({ //ensuite on affiche le message "user successfull signed up" et le statut 201 de la requête
             succes: true,
             message: 'user succesfull signed up',
             user: userData
-        }))
+        }).res.render('signup'))
     }
 
     static getUsersList(req, res) {

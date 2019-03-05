@@ -6,6 +6,8 @@ import router from './routes/index';
 
 const app = express();
 
+app.set('views', [__dirname + '/views/home', __dirname + '/views/sessions', __dirname + '/views/users', ]);
+
 app.set('view engine', 'ejs'); // moteur de template permettant d'afficher du html
 
 const server = http.createServer(app);  //on crée le serveur
