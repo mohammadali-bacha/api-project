@@ -14,7 +14,7 @@ const app = express();
 // });
 
 
-router.get('/signup', UsersControllers.signup1); //requête get pointant vers /signup
+router.get('/signup', UsersControllers.getSignup); //requête get pointant vers /signup
 
 router.post('/signup', UsersControllers.signup); //requête post pointant vers /signup
 

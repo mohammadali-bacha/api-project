@@ -34,7 +34,7 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         return res.render('home');
     }
 
-    static signup1(req, res, next) {
+    static getSignup(req, res, next) {
         return res.render('signup');
     }
 
@@ -47,12 +47,14 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
             const {
                 email,
                 password,
+                firstname,
                 name
             } = req.body;
             const userData = await User.create({ // on crée les valeurs d'email, password et name
                 email: email,
                 password: password,
-                name: name,
+                firstname: firstname,
+                name: name
             })
             return res.status(201).send({ // on rend la vue home avec le fichier index.html contenu dedans
                 succes: true,
@@ -73,12 +75,14 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         const {
             email,
             password,
+            firstname,
             name
         } = req.body;
         return User.create({ // on crée les valeurs d'email, password et name
             email: email,
             password: password,
-            name: name,
+            firstname: firstname,
+            name: name
         }).then(()=> res.render('signup'));
         
     }
