@@ -38,6 +38,10 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         return res.render('signup');
     }
 
+    static hi(req, res, next){
+        return res.render('hi');
+    }
+
     //------------
     // api json :
     //------------
@@ -50,7 +54,7 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
                 firstname,
                 name
             } = req.body;
-            const userData = await User.create({ // on crée les valeurs d'email, password et name
+            const userData = await User.create({ // on crée les valeurs d'email, password et name et firstname
                 email: email,
                 password: password,
                 firstname: firstname,
@@ -78,12 +82,12 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
             firstname,
             name
         } = req.body;
-        return User.create({ // on crée les valeurs d'email, password et name
+        return User.create({ // on crée les valeurs d'email, password et name et firstname
             email: email,
             password: password,
             firstname: firstname,
             name: name
-        }).then(()=> res.render('signup'));
+        }).then(()=> res.render('signup')).then(res.redirect('hi'));
         
     }
 
