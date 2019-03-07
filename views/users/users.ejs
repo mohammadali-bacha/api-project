@@ -28,33 +28,15 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="/users">Users</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <button type="button" class="btn btn-success" onclick="window.location.href = '/signin';">Sign In</button>
-            </ul>
-            <button type="button" class="btn btn-info" onclick="window.location.href = '/signup';">Sign Up</button>
 
-            <button type="button" class="btn btn-danger float-left" href="">Sign Out</button>
-
-        </div>
-    </nav>
     <div class="container">
 
         <h1>Liste des utilisateurs :</h1>
 
-        <ul class="list-group">
+        <ul class="">
             <% users.forEach(function(user){ %>
-            <li class="list-group-item themed">
-                <%= user.name %>
+            <li class="">
+                <%= user.lastName %>
             </li>
             <% });%>
         </ul>

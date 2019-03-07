@@ -18,7 +18,7 @@ router.get('/signup', UsersControllers.getSignup); //requête get pointant vers 
 
 router.post('/signup', UsersControllers.signup); //requête post pointant vers /signup
 
-router.get('/hi', UsersControllers.hi); // page accessible après avoir signup
+router.get('/helloWorld', UsersControllers.helloWorld); // page accessible après avoir signup
 
 router.get('/signin', UsersControllers.signin); // requête get pointant vers signin pour se login
 

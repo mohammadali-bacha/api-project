@@ -38,8 +38,8 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         return res.render('signup');
     }
 
-    static hi(req, res, next){
-        return res.render('hi');
+    static helloWorld(req, res, next){
+        return res.render('helloWorld');
     }
 
     //------------
@@ -51,14 +51,14 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
             const {
                 email,
                 password,
-                firstname,
-                name
+                firstName,
+                lastName
             } = req.body;
             const userData = await User.create({ // on crée les valeurs d'email, password et name et firstname
                 email: email,
                 password: password,
-                firstname: firstname,
-                name: name
+                firstName: firstName,
+                lastName: lastName
             })
             return res.status(201).send({ // on rend la vue home avec le fichier index.html contenu dedans
                 succes: true,
@@ -79,15 +79,15 @@ class UsersControllers { //ceci est le contrôleur de la vue Users
         const {
             email,
             password,
-            firstname,
-            name
+            firstName,
+            lastName
         } = req.body;
         return User.create({ // on crée les valeurs d'email, password et name et firstname
             email: email,
             password: password,
-            firstname: firstname,
-            name: name
-        }).then(()=> res.render('signup')).then(res.redirect('hi'));
+            firstName: firstName,
+            lastName: lastName
+        }).then(()=> res.render('helloWorld'));
         
     }
 
